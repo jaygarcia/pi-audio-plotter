@@ -1,0 +1,3 @@
+/home/jgarcia/projects/pi-audio-plotter/gui/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jgarcia/projects/pi-audio-plotter/gui/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jgarcia/projects/pi-audio-plotter/gui/cmake-build-debug/CMakeFiles/pi-audio-plotter.dir

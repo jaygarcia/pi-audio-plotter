@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 3.7)
+project(pi-audio-plotter)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-implicit-exception-spec-mismatch")
+
+# external libraries
+INCLUDE(FindPkgConfig)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+find_package(GTK2 2.6 REQUIRED gtk)
+
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+
+INCLUDE_DIRECTORIES(
+  ${SDL2_INCLUDE_DIR}
+  ${SDL2_IMAGE_INCLUDE_DIR}
+  ${SDL2_TTF_INCLUDE_DIR}
+  ${GTK2_INCLUDE_DIRS}
+)
+
+INCLUDE_DIRECTORIES(
+  ${CMAKE_SOURCE_DIR}/src
+)
+
+
+
+message(CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR})
+file(
+  GLOB_RECURSE SOURCE_FILES
+  ${CMAKE_SOURCE_DIR}/src/*.cpp
+  ${CMAKE_SOURCE_DIR}/src/*.h
+)
+
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+message(SDL2TTF_LIBRARIES " " ${SDL2TTF_LIBRARIES})
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME}
+  ${CMAKE_THREAD_LIBS_INIT}
+  ${SDL2_LIBRARY}
+  ${SDL2_IMAGE_LIBRARIES}
+  ${SDL2_TTF_LIBRARIES}
+  ${GTK2_LIBRARIES}
+)
