@@ -39,7 +39,6 @@ void MakeWindow() {
   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
   gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
-  gtk_widget_set_uposition(GTK_WIDGET(window), 0, 0);
 
   g_signal_connect(window, "delete-event", G_CALLBACK(onDelete), NULL);
 
@@ -82,5 +81,7 @@ void ShowWindow() {
   gtk_widget_show(window);
   gtk_widget_set_size_request(GTK_WIDGET(window), width, height);
   gtk_widget_activate(window);
+  gtk_window_move(GTK_WINDOW(window), 0, 0);
+
 //  gtk_window_set_position(GTK_WIDGET(window), 0,0);
 }
