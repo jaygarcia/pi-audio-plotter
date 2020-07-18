@@ -38,7 +38,7 @@ void MakeWindow() {
 
   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-//  gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
+  gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
 
   g_signal_connect(window, "delete-event", G_CALLBACK(onDelete), NULL);
 
